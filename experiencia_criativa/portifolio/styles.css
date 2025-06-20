@@ -12,11 +12,11 @@ html {
 }
 
 :root {
-    --primaria: #1F3B70;        /* Azul Noite */
-    --secundaria: #B87333;      /* Caramelo */
-    --escuro: #1F1F1F;          /* Preto suavizado */
-    --maisEscuro: #0E0E0E;      /* Preto profundo */
-    --claro: #F6D1C1;           /* Rosa Pêssego */
+    --primaria: #1F3B70;
+    --secundaria: #B87333;
+    --escuro: #1F1F1F;
+    --maisEscuro: #0E0E0E;
+    --claro: #F6D1C1;
 }
 
 body {
@@ -24,6 +24,7 @@ body {
     color: var(--claro);
 }
 
+/* NAVEGAÇÃO */
 .navegacao {
     position: fixed;
     top: 0;
@@ -38,6 +39,7 @@ body {
     justify-content: center;
     list-style: none;
     gap: 3rem;
+    flex-wrap: wrap;
 }
 
 .menu_link {
@@ -64,17 +66,29 @@ body {
     width: 100%;
 }
 
+/* CABEÇALHO */
 .cabecalho {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row-reverse;
+    gap: 250px;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.texto {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .foto_portifolio {
-    width: 370px;
-    height: 370px;
+    width: 100%;
+    max-width: 370px;
+    height: auto;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 50%;
     border: 4px solid var(--claro);
@@ -85,14 +99,16 @@ h1 {
     color: var(--primaria);
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    margin: 20px;
+    margin: 25px;
 }
 
 .cabecalho_subtitulo {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: var(--claro);
+    margin: 25px;
 }
 
+/* SOBRE */
 .sobre {
     padding: 6rem 2rem;
 }
@@ -120,9 +136,9 @@ h1 {
     font-size: 1.4rem;
     line-height: 2rem;
     color: var(--claro);
-
 }
 
+/* PROJETOS */
 .projetos {
     padding: 6rem 2rem;
 }
@@ -159,7 +175,7 @@ h1 {
 
 .projetos_caixa {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -180,24 +196,149 @@ h1 {
     padding: 1.5rem;
 }
 
-footer img{
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--escuro);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+footer img {
     width: 40px;
     height: 40px;
     margin-bottom: 0.5rem;
 }
-footer {
-    display: flex;
-    justify-content: center;
-    background-color: var(--escuro);
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    cursor: pointer;
-    
+
+footer h1 {
+    font-size: 3.5rem;
+    color: var(--claro);
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    margin: 25px;
+    flex-basis: 100%;
+    text-align: center;
 }
+
 footer a {
-    margin: 20px;
+    margin: 10px;
     text-decoration: none;
     color: var(--claro);
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-weight: lighter;
+}
+
+/* TEXTO DE PROJETOS */
+.texto-projetos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.texto-projetos h1 {
+    font-size: 2rem;
+    color: var(--primaria);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.texto-projetos img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 4%;
+}
+
+.texto-projetos p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-align: justify;
+    padding: 0 0.5rem;
+}
+
+/* RESPONSIVIDADE GERAL */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin: 15px;
+    }
+
+    .cabecalho_subtitulo {
+        font-size: 1.4rem;
+    }
+
+    .sobre_titulo {
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    .sobre_paragrafo {
+        font-size: 1.2rem;
+    }
+
+    .projetos_caixa {
+        grid-template-columns: 1fr;
+    }
+
+    .projetos_card {
+        margin: 0.5rem 0;
+    }
+
+    footer h1 {
+        font-size: 2rem;
+    }
+
+    footer a {
+        font-size: 0.9rem;
+    }
+
+    footer img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .cabecalho_subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .foto_portifolio {
+        max-width: 200px;
+    }
+
+    .sobre_titulo {
+        font-size: 1.6rem;
+    }
+
+    .sobre_paragrafo {
+        font-size: 1rem;
+    }
+
+    footer h1 {
+        font-size: 1.5rem;
+    }
+
+    footer a {
+        font-size: 0.8rem;
+    }
 }
